@@ -13,9 +13,9 @@ body{
   position: relative;
   display: flex;
   align-items: center;
+  padding-left: 50px;
   width: 100%;
   min-height: 80vh;
-  padding: 50px;
   font-family: 'Montserrat', sans-serif;
   background-size: cover;
   background-position: center;
@@ -43,21 +43,51 @@ body{
   h1{
     font-size: 42px;
     padding-bottom: 20px;
-    animation: animated-text 2.5s steps(35,end) 1s 1 normal both;
+    animation: animated-text 2s steps(35,end) 0s 1 normal both;
     overflow: hidden;
   }
   h5{
     font-size: 26px;
-    animation: animated-text 1.5s steps(35,end) 4s 1 normal both;
+    animation: animated-text 1s steps(35,end) 2s 1 normal both;
     overflow: hidden;
   }
 }
 .header-smile{
+  position: absolute;
+  width: 400px;
+  height: 300px;
   z-index: 1;
-  max-height: 80vh;
-  max-width:  50vw;
-  animation: opaicty 1.5s steps(35,end) 5s 1 normal;
+  top: 30vh;
+  left: 65vw;
+  animation: fadein 1s steps(35,end) 3s 1 normal both;
+  transform:rotateZ(0deg);
+  transition: all .7s;
+  text-align: center;
+  
+  p{
+    font-family: 'Pacifico', cursive; font-size:50px;color:#ed1c24;
+    white-space: nowrap;
+  }
 }
+.smile-slogan2{
+  display: none;
+}
+
+.smile{
+  height: 170px;
+  padding-bottom: 20px;
+}
+.smile-mouth, .smile-eyes {
+  stroke:yellow;
+  stroke-width:1;
+  stroke-linecap:round;
+  fill:transparent;
+}
+
+.smile.animate {animation:rotate 1.2s cubic-bezier(0.65, 0.000, 0.75, 1.000);}
+.smile-mouth.animate{animation: smile 1s cubic-bezier(0.2, 0.000, 0.8, 1.000);}
+.smile-eyes.animate{animation: eyes 1s cubic-bezier(.7, 0.000, 0.4, 1.000);}
+
 
 .s-about{
   width: 100%;
@@ -72,28 +102,12 @@ footer{
   min-height: 100vh;
 }
 
-svg{
-    position: absolute;
-    left: 60vw;
-    height:150px;
-    transform:rotateZ(0deg);
-  }
-  .smile, .eyes {
-    stroke:yellow;
-    stroke-width:1;
-    stroke-linecap:round;
-    fill:transparent;
-  }
-  svg:hover {animation:rotate 1.2s cubic-bezier(0.65, 0.000, 0.75, 1.000);}
-  svg:hover .smile{animation: smile 1s cubic-bezier(0.2, 0.000, 0.8, 1.000);}
-  svg:hover .eyes{animation: eyes 1s cubic-bezier(.7, 0.000, 0.4, 1.000);}
-
   // --------------- keyframes -----------------
   @keyframes rotate { to { transform:rotateZ(720deg); } }
   @keyframes smile { 50% { stroke-dasharray:20,5.1327;} }
   @keyframes eyes  { 70% { stroke-dasharray:1,0,.5,23.6327;} }
 
-  @keyframes appear { from {opaicty: 0%} to{opaicty: 100% }}
+  @keyframes fadein { from {opacity: 0; } to{opaicty: 1;}}
 
   @keyframes animated-text{
     from{width: 0;}
