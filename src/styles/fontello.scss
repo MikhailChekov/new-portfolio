@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('/src/font/fontello.eot?28681982');
+    src: url('/src/font/fontello.eot?28681982#iefix') format('embedded-opentype'),
+         url('/src/font/fontello.woff2?28681982') format('woff2'),
+         url('/src/font/fontello.woff?28681982') format('woff'),
+         url('/src/font/fontello.ttf?28681982') format('truetype'),
+         url('/src/font/fontello.svg?28681982#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+   
+   [class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+  }
+  .icon-phone-squared:before { content: '\f098'; } /* '' */
+  .icon-github-circled:before { content: '\f09b'; } /* '' */
+  .icon-skype:before { content: '\f17e'; } /* '' */
+  .icon-telegram:before { content: '\f2c6'; } /* '' */
+  .icon-vkontakte-rect:before { content: '\f30a'; } /* '' */
