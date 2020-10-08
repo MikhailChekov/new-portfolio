@@ -1,4 +1,8 @@
-//get elements for smile animation controls
+//Check width for stop script on small devices
+// if(window.innerWidth < 760) return;
+
+
+// get elements for smile animation controls
 const smileWrapper = document.getElementById('header-smile'),
     smile = document.getElementById('smile'),
     smileSlogan = document.getElementById('smile-slogan'),
@@ -10,7 +14,7 @@ const smileWrapper = document.getElementById('header-smile'),
 
 let isSmileTouched = false;
 
-//back on start smile after animate function
+// back on start smile after animate function
 const smileBack = () => {
     if(isSmileTouched){
         smileWrapper.style.left = '60vw'; 
@@ -44,7 +48,7 @@ smileWrapper.onmouseenter = () => {
     smileWrapper.style.left = left; 
     smileWrapper.style.top = top;
     
-    // delete animate class after animate is complete
+    // delete animation class after animation finishes
     setTimeout(()=> {
         smile.classList.toggle('animate');
         smileEyes.classList.toggle('animate');

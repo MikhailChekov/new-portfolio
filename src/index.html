@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png"> -->
-<meta name="description" content="Mikhail Chekov porfolio">
-<meta name="keywords" content="Mikhail Chekov, portfolio">
-<meta name="author" content="Mikhail Chekov">
-<link rel="stylesheet" href="src/dist/styles/index.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<title>Mikhail Chekov - porfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/index.min.css">
+    <title>Mikhail Chekov - portfolio</title>
 </head>
-<body>
-    <header class="s-header" id="animate-container">
-        <div class="header-overlay"></div>
-        <div class="header-plusone"></div>
-        <div class="header-text">
-            <h1>Привет, я Чеков Михаил</h1>
-            <h5>Фронтенд-разработчик</h5>
+    <body>
+        <div class="wrapper">
+            <div class="page">
+                @@include('__header.html')
+                <div class="container">
+                    <main class="content">
+                        <section class="works" id="works">
+                            <div class="works__title" >
+                                <div class="section-title">
+                                    My works 
+                                    <span class="section-title__icon ibg"><img src="img/star.png" alt=""></span>
+                                </div>
+                            </div>
+                            <!-- react-table -->
+                            <div class="works__row">
+                                <div class="works__column">
+                                    <a class="works__img ibg" href="https://mikhailchekov.github.io/table-react-app/" target="_blank" ><img src="img/react_table_app.jpg" alt=""></a>
+                                </div>
+                                <div class="works__column">
+                                    <div class="works__item item">
+                                        <div class="item__container">
+                                            <div class="item__header"><h3>React table app</h3></div>
+                                            <div class="item__descr">
+                                                <p>
+                                                    Приложение для отображения данных пользователей в виде таблицы, создавалось в соответствии с <a class="item__link" href="https://github.com/fugr-ru/frontend-javascript-test" target="_blank">ТЗ, </a>
+                                                    во время задания старался использовать дополнительные библиотеки по минимуму, писать все на чистом js,  для того чтобы уменьшить вес, и для изучения/закрепления знаний языка.
+                                                </p>
+                                                <div class="item__cut">
+                                                    <br><p>Функционал:</p>
+                                                    <ul>
+                                                        <li>Загрузка данных через Api, вывод нужного количества данных, в зависимости от запроса.</li>
+                                                        <li>Возможность сортировки/поиска/добавления и вывода данных конкретного пользователя.</li>
+                                                        <li>Фильтрация значений формы.</li>
+                                                    </ul>
+                                                    <br><p>Технологии и библиотеки, используемые при создании:</p>
+                                                    <ul>
+                                                        <li>React, React (Hooks), React-bootstrap, react-paginate.</li>
+                                                        <li>Регулярные выражения для валидации формы.</li>
+                                                    </ul>
+                                                </div>
+                                                <a class="item__link item__link_more">Читать далее</a>
+                                            </div>
+                                            <div class="item__btn-panel">
+                                                <a class="item__btn btn" href="https://github.com/MikhailChekov/table-react-app" target="_blank" >Файлы проекта</ф>
+                                                <a class="item__btn btn" href="https://mikhailchekov.github.io/table-react-app/" target="_blank" >Перейти к проекту</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- bicycle-template -->
+                            <div class="works__row">
+                                <div class="works__column">
+                                    <a class="works__img ibg" href="#" target="_blank" ><img src="img/bicycle-long.jpg" alt="Bicycle responsive template"></a>
+                                </div>
+                                <div class="works__column">
+                                    <div class="works__item item">
+                                        <div class="item__container">
+                                            <div class="item__header"><h3>Bicycle responsive template</h3></div>
+                                            <div class="item__descr">
+                                                <p>Адаптивно-отзывчивая верстка макета bicycle. Сверстано по <a href="" class="item__link item__link_small">курсу</a>.</p>
+                                                <p>После этой работы я повысил свой уровень верстки,
+                                                    попрактиковался в БЭМ, бургер-меню. Слайдер ради интереса написал сам.</p>
+                                                <div class="item__cut">
+                                                   
+                                                </div>
+                                                <a class="item__link item__link_more">Читать далее</a>
+                                            </div>
+                                            <div class="item__btn-panel">
+                                                <a class="item__btn btn" href="https://github.com/MikhailChekov/table-react-app" target="_blank" >Файлы проекта</ф>
+                                                <a class="item__btn btn" href="https://mikhailchekov.github.io/table-react-app/" target="_blank" >Перейти к проекту</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+                @@include('__footer.html')
+            </div>
         </div>
-        <div id="socials" class="socials">
-            <ul>
-                <li><a href="tel:+79030168585"><i class="icon-phone-squared"></i></a></li>
-                <li><a href="https://t.me/username"><i class="icon-telegram"></i></a></li>
-                <li><a href="https://github.com/MikhailChekov/"><i class="icon-github-circled"></i></a></li>
-                <li><a href="skype:mike260588"><i class="icon-skype"></i></a></li>
-                <li><a href="https://vk.com/mikhailchekov"><i class="icon-vkontakte-rect"></i></a></li>
-            </ul>
-        </div>
-        <div id="header-smile" class="header-smile">
-            <svg class="smile" id="smile" viewbox="0 0 10 10">
-                <circle id="smile-mouth" class="smile-mouth" cx="5" cy="5" r="4"
-                stroke-dashoffset="-.5"
-                stroke-dasharray="11.5,13.6327" />
-                <circle id="smile-eyes" class="smile-eyes" cx="5" cy="5" r="4" 
-                stroke-dashoffset="-15.5"
-                stroke-dasharray="0,6.6327,0,17.5" />
-            </svg>
-            <div class="smile-slogan" id="smile-slogan"><p>Поймаешь меня?</p></div>
-            <div class="smile-slogan2" id="smile-slogan2"><p>Все, я устал .<br>Хорошего дня!</p></div>
-        </div>
-    </header>
-    <section class="s-about">
-        
-    </section>
-    <section class="s-works"></section>
-    <section class="s-skills"></section>
-    <footer class="s-footer"></footer>
-
-    <script src="src/js/index.js"></script>
-</body>
+        <script src="js/script.min.js" ></script>
+    </body>
 </html>
+

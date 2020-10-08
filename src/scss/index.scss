@@ -1,0 +1,276 @@
+// Mixins
+@import "mixins.scss";
+// Mixins
+
+//Fonts -----------------
+
+//new css2 google url font (trouble with scss compile)
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+//old css google url (working for now)
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
+
+//default fonts
+$font-family: "Lato", sans-serif;
+
+//Variables
+$main-color: #eee;
+
+$min-width: 320px;
+
+// Reset , default parametrs
+@import "startparams.scss";
+
+body {
+    background: #221e3f;
+}
+
+ul {
+    padding-left: 30px;
+    list-style-type: disc;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+}
+
+//default grid
+.container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+//includes header, footer and other sections
+// @import "header.scss";
+// @import "footer.scss";
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include flexbox();
+    flex-direction: column;
+}
+
+.section-title {
+    color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+    @include anim_lin(1.8s,0s);
+
+
+    //star 
+    &__icon {
+        @include anim_lin(1.8s,0s);
+        display: block;
+        margin: 10px auto 0 auto;
+        width: 20px;
+        height: 20px;
+        bottom: 5px;
+
+            //lines
+        &::after,
+        &::before {
+            opacity: 0;
+            position: absolute;
+            height: 4px;
+            width: 60%;
+            bottom: -16px;
+            background: linear-gradient(97deg, rgba(192,192,192,1) 0%, rgba(207,207,207,0.7441351540616247) 19%, rgba(0,212,255,1) 100%);
+        }
+        &::before {
+            content: "";
+            @include tr (-70%, 0, 0);
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        &::after {
+            content: "";
+            @include tr (70%, 0, 0);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        //animating
+        &_active{
+
+            .section-title__icon {
+                @include rotate(360deg);
+            }
+
+            &::after {
+                content: "";
+                right: -10px;
+                opacity: 1;
+            }
+
+            &::before {
+                content: "";
+                left: -10px;
+                opacity: 1;
+            }
+
+        }
+    }
+
+}
+
+.works {
+    // .works__title
+    &__title {
+        position: relative;
+        text-align: center;
+        margin: 60px 0;
+    }
+
+    // .works__row
+    &__row {
+        @include flexbox();
+        overflow: hidden;
+        margin: 0 0 50px 0;
+    }
+
+    &__row:nth-child(odd) {
+        .works__column:first-child {
+            @include flexorder(2);
+        }
+        .works__column:last-child {
+            @include flexorder(1);
+        }
+    }
+
+    // .works__column
+    &__column {
+        position: relative;
+        flex: 0 1 50%;
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .works__img
+    &__img {
+        display: block;
+        max-height: 350px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    // .works__item
+    &__item {
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        min-height: 350px;
+        padding: 0 0 0 30px;
+        width: 100%;
+    }
+}
+
+.item {
+    &__link {
+        color: #3883ff;
+        cursor: pointer;
+    }
+
+    &__link:hover {
+        color: #2f67cd;
+    }
+
+    // .item__link_more
+    &__link_more {
+        display: inline-block;
+        font-size: 14px;
+        margin: 0 15px;
+        line-height: inherit;
+        text-transform: uppercase;
+    }
+
+    // .item__link_small
+    &__link_small {
+        text-transform: initial;
+    }
+
+    // .item__container
+    &__container {
+        @include flexbox();
+        flex-direction: column;
+    }
+
+    // .item__header
+    &__header {
+        color: $main-color;
+        text-align: center;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        margin: 0 0 18px 0;
+    }
+
+    // .item__descr
+    &__descr {
+        flex: 0 1 auto;
+        color: $main-color;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 28px;
+        font-weight: normal;
+        margin: 0 0 10px 0;
+    }
+
+    //item__btn-panel
+    &__btn-panel {
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+
+    &__btn {
+        display: inline-block;
+        font-size: 14px;
+        margin: 0 10px;
+        padding: 5px 15px;
+        line-height: inherit;
+        background: transparent;
+        border-radius: 16px;
+        color: #fff;
+        border: 2px solid #fff;
+        @include anim(0.5s, 0s);
+    }
+
+    &__btn:hover {
+        @include scale(1.2);
+    }
+
+    &__cut {
+        display: none;
+    }
+}
+
+// .main-screen {
+//     flex: 1 0 100%;
+//     position: relative;
+//     // background image
+//     &__bg {
+//         position: absolute;
+//         width: 100%;
+//         height: 100%;
+//         top: 0;
+//         left: 0;
+//     }
+// }
