@@ -1,26 +1,31 @@
-(function() {
+
 /**
- * * Usage: AddActiveOnScroll(elems[,btnParetn, mode])
+ * * Usage: AnimateOnScroll(elems[repeatAnim, BEMmode, classToElem])
  *  elems - container with elements, which get class active when get visible to 1/4 their heigth
- *  classToElem  string   - class added when elements showing user, default name -  '_active'
  *  repeatAnim  boolean  - if false, animation show 1 time.
  *  BEMmode   booleand - if true, copy elem class and concatinate with classToElem, looks like - container__item + _active =>  container__item_active
+ *  classToElem  string   - class added when elements showing user, default name -  '_active'
 */
-const elems = document.querySelectorAll('');
 
-function AddActiveOnScroll(elems, classToElem = '_active', repeatAnim = true, BEMmode = false) {
+function AnimateOnScroll(elems, repeatAnim = true, BEMmode = false, classToElem = '_active') {
     if (elems.length) {
+
+        // 1 time exec for elems on 1st screen, which not get event scroll.
+        animOnScroll();
+
         window.addEventListener('scroll', animOnScroll);
         function animOnScroll() {
+
             for (let i = 0; i < elems.length; i++) {
-                const item = elems[i],
-                    itemLastClass  = item.classList[item.classList.length -1],
+                let item = elems[i],
                     itemHeight = item.offsetHeight,
                     itemOffset = offset(item).top,
-                    animStart = 4;
-                    classToElem = BEMmode ? itemLastClass + classToElem : classToElem;
+                    animStart = 2,
+                    itemNewClass = '',
+                    itemLastClass  = item.classList[item.classList.length -1];
 
-                    console.log(itemLastClass)
+                    if(itemLastClass.includes(classToElem)) continue;
+                    itemNewClass = BEMmode ? itemLastClass + classToElem : classToElem;
 
                 let itemPoint = window.innerHeight - itemHeight / animStart;
                 if (itemHeight > window.innerHeight) {
@@ -28,10 +33,12 @@ function AddActiveOnScroll(elems, classToElem = '_active', repeatAnim = true, BE
                 }
     
                 if ((pageYOffset > itemOffset - itemPoint) && pageYOffset < (itemOffset + itemHeight)) {
-                    item.classList.add(classToElem);
+                    if(!item.classList.contains(itemNewClass)){
+                        item.classList.add(itemNewClass);
+                    }
                 } else {
                     if (repeatAnim) {
-                        item.classList.remove(classToElem);
+                        item.classList.remove(itemNewClass);
                     }
                 }
             }
@@ -43,8 +50,8 @@ function AddActiveOnScroll(elems, classToElem = '_active', repeatAnim = true, BE
             return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
         }
     } else {
-        console.error('No scroll elems on container!');
+        console.error('No scroll elements on container from AnimateOnScroll()');
     }
 }
 
-}());
+export default AnimateOnScroll;

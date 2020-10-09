@@ -34,23 +34,20 @@ const path = {
 /* ------------------- Requires  ------------------ */
 const { src, dest } = require('gulp'),
     gulp = require('gulp'),
-    fs = require('fs'),
-    babel = require('gulp-babel'),
-    browsersync = require('browser-sync').create(),
-    //templater html , js 
-    fileinclude = require('gulp-file-include'),
-    //clean dist folder
-    del = require('del'),
+    concat = require('gulp-concat');
+    cleancss = require('gulp-clean-css'),
     scss = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
+    fileinclude = require('gulp-file-include'),
+    rename = require("gulp-rename"),
+    uglify = require('gulp-uglify-es').default,
+    fs = require('fs'),
+    babel = require('gulp-babel'),
+    imagemin = require('gulp-imagemin'),
+    browsersync = require('browser-sync').create(),
+    del = require('del'),
     //push media-queries to bottom
     gcmq = require('gulp-group-css-media-queries'),
-    cleancss = require('gulp-clean-css'),
-    // for new file
-    rename = require("gulp-rename"),
-    // js minify
-    uglify = require('gulp-uglify-es').default,
-    imagemin = require('gulp-imagemin'),
 
     //for photo .webp
     // webp = require('gulp-webp'),
@@ -68,7 +65,9 @@ const { src, dest } = require('gulp'),
     notify = require('gulp-notify'),
     beep = require('beepbeep'),
     jslint = require('gulp-jslint'),
-    prettyError = require('gulp-prettyerror');
+    prettyError = require('gulp-prettyerror'),
+    webpack = require('webpack'),
+    webpackStream = require('webpack-stream');
 
 
 
@@ -146,9 +145,26 @@ function minifyCss() {
 function js() {
     return src(path.src.js)
         .pipe(plumber())
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        .pipe(concat('script.js'))
+        .pipe(webpackStream({
+            output: {
+                filename: 'script.js',
+            },
+            module: {
+                rules: [
+                    {
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                        presets: ['@babel/preset-env']
+                        }
+                    }
+                    }
+                ]
+                }
+            }))
         .pipe(prettyError())
         .pipe(dest(path.build.js))
         .pipe(browsersync.stream())
@@ -157,9 +173,26 @@ function js() {
 function minifyJs() {
         return src(path.src.js)
             .pipe(plumber())
-            .pipe(babel({
-                presets: ['@babel/env']
-            }))
+            .pipe(concat('script.js'))
+            .pipe(webpackStream({
+                output: {
+                  filename: 'script.js',
+                },
+                module: {
+                    rules: [
+                      {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                          loader: 'babel-loader',
+                          options: {
+                            presets: ['@babel/preset-env']
+                          }
+                        }
+                      }
+                    ]
+                  }
+              }))
             .pipe(prettyError())
             .pipe(uglify())
             .pipe(rename({ extname: '.min.js'}))
