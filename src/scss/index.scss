@@ -39,10 +39,17 @@ ul {
     min-height: 100%;
 }
 
-//default grid
+//default width site
 .container {
     max-width: 1200px;
     padding: 0 15px;
+    margin: 0 auto;
+}
+
+// site width for wide animating blocks
+.container__wide {
+    max-width: 1200px;
+    padding: 0 70px;
     margin: 0 auto;
 }
 
@@ -70,39 +77,43 @@ ul {
     font-size: 24px;
     font-weight: normal;
     position: relative;
-    @include anim_lin(1.8s,0s);
+    @include anim_lin(1.8s, 0s);
 
-       //lines
+    //lines
     &::after,
     &::before {
-        @include anim_lin(1.8s,0s);
+        @include anim_lin(1.8s, 0s);
         opacity: 1;
         position: absolute;
         height: 4px;
         width: 70px;
-        background: linear-gradient(97deg, rgba(192,192,192,1) 0%, rgba(207,207,207,0.7441351540616247) 19%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(
+            97deg,
+            rgba(192, 192, 192, 1) 0%,
+            rgba(207, 207, 207, 0.7441351540616247) 19%,
+            rgba(0, 212, 255, 1) 100%
+        );
     }
     &::before {
         bottom: 7px;
         right: 80px;
         content: "";
-        @include tr (-70%, 0, 0);
+        @include tr(-70%, 0, 0);
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
     }
     &::after {
         content: "";
-        @include tr (70%, 0, 0);
+        @include tr(70%, 0, 0);
         bottom: 7px;
         left: 79px;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
     }
 
-
-    //star 
+    //star
     &__icon {
-        @include anim_lin(1.8s,0s);
+        @include anim_lin(1.8s, 0s);
         display: block;
         margin: 10px auto 0 auto;
         width: 20px;
@@ -110,29 +121,36 @@ ul {
         bottom: 5px;
     }
     //animating on scroll
-    &_active{
-
+    &_active {
         .section-title__icon {
             @include rotate(360deg);
         }
 
-        &::after{
+        &::after {
             content: "";
-            @include tr (0, 0, 0);
+            @include tr(0, 0, 0);
             opacity: 1;
         }
 
         &::before {
             content: "";
-            @include tr (0, 0, 0);
+            @include tr(0, 0, 0);
             opacity: 1;
         }
-
     }
-
 }
 
 .works {
+    // .works__item
+    &__item {
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        min-height: 350px;
+        padding: 0 30px;
+        width: 100%;
+    }
+
     // .works__title
     &__title {
         position: relative;
@@ -143,17 +161,16 @@ ul {
     // .works__row
     &__row {
         @include flexbox();
-        margin: 0 0 50px 0;
+        margin: 0 0 70px 0;
     }
 
     // .works__column
     &__column {
         position: relative;
         flex: 0 0 50%;
-        margin: 0 10px;
         opacity: 0;
     }
-
+    // animating columns
     &__column:nth-child(even) {
         @include anim_lin(1.8s, 0s);
     }
@@ -163,11 +180,11 @@ ul {
     }
 
     &__column_left {
-        @include tr(-100px, 0, 0);
+        @include tr(-50px, 0, 0);
     }
 
     &__column_right {
-        @include tr(100px, 0, 0);
+        @include tr(50px, 0, 0);
     }
 
     &__column_left_active,
@@ -186,17 +203,6 @@ ul {
         top: 0;
         left: 0;
     }
-
-    // .works__item
-    &__item {
-        @include flexbox();
-        justify-content: center;
-        align-items: center;
-        min-height: 350px;
-        padding: 0 0 0 30px;
-        width: 100%;
-    }
-
 }
 
 .item {
@@ -279,6 +285,91 @@ ul {
         display: none;
     }
 }
+
+// ---------------------- Media queries Works section --------------------------//
+
+@media (max-width: 1500px) {
+    .works__row {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .works__row {
+        margin: 0 0 40px 0;
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .works__row {
+        max-width: 800px;
+    }
+
+    .works__title {
+        margin: 40px 0;
+    }
+
+    .item__link_more {
+        margin: 15px;
+    }
+
+    .item__descr {
+        margin: 0 0 20px 0;
+    }
+}
+
+@media (max-width: 968px) {
+    .works__row {
+        flex-direction: column;
+        margin: 0 0 10px 0;
+        max-width: 600px;
+    }
+    .works__row:nth-child(odd){
+        .works__column:nth-child(1){
+            @include flexorder(2);
+        }
+        .works__column:nth-child(2){
+            @include flexorder(1);
+        }
+    }
+
+    .works__column_img {
+        padding-bottom: 40%;
+    }
+
+    .works__item {
+        min-height: 300px;
+    }
+    .item__link_more {
+        margin: 5px 10px;
+    }
+}
+// TOD0: check 
+@media (max-width: 768px) {
+    .works__row {
+        max-width: 600px;
+    }
+
+}
+// TOD0: make full 
+@media (max-width: 480px) {
+    .works__row {
+        max-width: 600px;
+    }
+
+    .works__column_img {
+        padding-bottom: 40%;
+    }
+
+    .works__item {
+        min-height: 300px;
+    }
+    .item__link_more {
+        margin: 5px 10px;
+    }
+}
+
 
 // .main-screen {
 //     flex: 1 0 100%;
