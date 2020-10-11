@@ -2,9 +2,14 @@
 /**
  * * Usage: AnimateOnScroll(elems[repeatAnim, BEMmode, classToElem])
  *  elems - container with elements, which get class active when get visible to 1/4 their heigth
+ * 
  *  repeatAnim  boolean  - if false, animation show 1 time.
- *  BEMmode   booleand - if true, copy elem class and concatinate with classToElem, looks like - container__item + _active =>  container__item_active
- *  classToElem  string   - class added when elements showing user, default name -  '_active'
+ * 
+ *  BEMmode   booleand - if true, copy elem last class and concatinate with classToElem,
+ *  looks like - elemLastClass + _active =>  elemLastClass_active
+ * 
+ *  classToElem  string   - class concatinate with element last class,
+ * when elements showing user, default name -  '_active'
 */
 
 function AnimateOnScroll(elems, repeatAnim = true, BEMmode = false, classToElem = '_active') {
@@ -50,7 +55,7 @@ function AnimateOnScroll(elems, repeatAnim = true, BEMmode = false, classToElem 
             return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
         }
     } else {
-        console.error('No scroll elements on container from AnimateOnScroll()');
+        console.error('No elements in container AnimateOnScroll()');
     }
 }
 

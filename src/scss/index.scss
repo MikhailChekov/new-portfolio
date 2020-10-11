@@ -3,15 +3,10 @@
 // Mixins
 
 //Fonts -----------------
-
-//new css2 google url font (trouble with scss compile)
-// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
-
-//old css google url (working for now)
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
 //default fonts
-$font-family: "Lato", sans-serif;
+$font-family: "Roboto", sans-serif;
 
 //Variables
 $main-color: #eee;
@@ -43,13 +38,6 @@ ul {
 .container {
     max-width: 1200px;
     padding: 0 15px;
-    margin: 0 auto;
-}
-
-// site width for wide animating blocks
-.container__wide {
-    max-width: 1200px;
-    padding: 0 70px;
     margin: 0 auto;
 }
 
@@ -235,8 +223,8 @@ ul {
         flex-direction: column;
     }
 
-    // .item__header
-    &__header {
+    // .item__title
+    &__title {
         color: $main-color;
         text-align: center;
         font-size: 18px;
@@ -336,6 +324,7 @@ ul {
 
     .works__column_img {
         padding-bottom: 40%;
+        margin-bottom: 20px;
     }
 
     .works__item {
@@ -347,27 +336,65 @@ ul {
 }
 // TOD0: check 
 @media (max-width: 768px) {
+    .section-title::before,
+    .section-title::after,
+    .section-title__icon{
+        @include anim_lin(1s, 0s);
+    }
+
     .works__row {
         max-width: 600px;
+    }
+
+
+    .works__item {
+        padding: 0;
+        min-height: 250px;
+    }
+    .works__title{ 
+        margin: 20px 0;
+    }
+    .works__column_img {
+        margin: 0;
+    }
+    .item__title {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 3px;
+    }
+    .item__descr {
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .works__column_right, .works__column_left {
+        @include tr(0, 0, 0);
+        transition: none;
+        opacity: 1;
     }
 
 }
 // TOD0: make full 
 @media (max-width: 480px) {
-    .works__row {
-        max-width: 600px;
-    }
 
     .works__column_img {
         padding-bottom: 40%;
+        margin-bottom: 10px;
     }
 
     .works__item {
         min-height: 300px;
     }
-    .item__link_more {
-        margin: 5px 10px;
+
+    .item__title {
+        margin-bottom: 5px;
     }
+
+    .item__btn:first-child {
+        margin-bottom: 5px;
+    }
+
 }
 
 
