@@ -234,6 +234,7 @@
     .works__column_left {
         transition: none;
         opacity: 1;
+        @include tr(0, 0, 0);
     }
 }
 
