@@ -35,8 +35,9 @@ img{
 }
 
 .wrapper {
-    overflow: hidden;
+    width: 100%;
     min-height: 100%;
+    overflow: hidden;
 }
 
 //default width site
@@ -45,11 +46,6 @@ img{
     padding: 0 15px;
     margin: 0 auto;
 }
-
-//includes header, footer and other sections
-// @import "header.scss";
-@import 'works.scss';
-// @import "footer.scss";
 
 .page {
     position: absolute;
@@ -60,6 +56,9 @@ img{
     @include flexbox();
     flex-direction: column;
 }
+
+//includes header, footer and other sections
+@import 'works.scss';
 
 .section-title {
     display: flex;
@@ -90,7 +89,8 @@ img{
     }
     &::before {
         bottom: 7px;
-        right: 80px;
+        //80
+        right: 65px;
         content: "";
         @include tr(-70%, 0, 0);
         border-top-left-radius: 3px;
@@ -100,7 +100,8 @@ img{
         content: "";
         @include tr(70%, 0, 0);
         bottom: 7px;
-        left: 79px;
+        //79
+        left: 64px;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
     }
@@ -134,15 +135,79 @@ img{
     }
 }
 
-// .main-screen {
-//     flex: 1 0 100%;
-//     position: relative;
-//     // background image
-//     &__bg {
-//         position: absolute;
-//         width: 100%;
-//         height: 100%;
-//         top: 0;
-//         left: 0;
-//     }
-// }
+.main-block {
+    flex: 1 0 100%;
+    position: relative;
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+
+    // .main-block__content
+    &__content {
+        // position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    // .main-block__greet
+    &__greet {
+        color: #fff;
+        padding-bottom: 10%;
+        // margin: 30px 0;
+    }
+
+    // .main-block__title
+    &__title {
+        font-size: 34px;
+        line-height: 40px;
+        font-weight: 700;
+        letter-spacing: 5.4px;
+        padding: 0 0 10px 0;
+    }
+
+    // .main-block__subtitle
+    &__subtitle {
+        font-size: 26px;
+        font-weight: 400;
+        letter-spacing: 4.1px;
+    }
+
+    // .main-block__arrow
+    &__arrow {
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        margin-left: -25px;
+        z-index: 1;
+        text-align: center;
+        a {
+            display: inline-block;
+        } 
+    }
+
+    // .main-block__image
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        &:after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(#221e3f, .8);
+        }
+    }
+}
+
+.smile {
+}
+

@@ -13,23 +13,40 @@
     <body>
         <div class="wrapper">
             <div class="page">
-                @@include('__header.html')
-                <div class="main-screen">
-                    <div class="main-screen__bg ibg"><img src="img/bg.jpg" alt="main background photo"></div>
+                <div class="main-block">
+                    <div class="main-block__content">
+                        <div class="main-block__container container">
+                            <div class="main-block__greet">
+                                <h1 class="main-block__title">Привет, я Чеков Михаил!</h1>
+                                <h5 class="main-block__subtitle">Фронтенд-разработчик</h5>
+                                <div id="smile" class="main-block__smile smile"></div>
+                            </div>
+                            <div class="main-block__bottom">
+                                <div class="main-block__arrow">
+                                    <a href="">
+                                        <img src="img/icons/arrow-down.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block__image ibg">
+                        <img src="img/cover.jpg" alt="main background photo">
+                    </div>
                 </div>
                 <div class="container">
                     <main class="content">
                         <section class="works" id="works">
                                 <div class="works__title" >
                                     <div class="section-title">
-                                        My works 
+                                        Работы
                                         <span class="section-title__icon"><img class="img-icon" src="img/star.png" alt="silver star"></span>
                                     </div>
                                 </div>
                                 <!-- react-table -->
                                 <div class="works__row">
                                     <div class="works__column works__column_img works__column_left">
-                                        <a class="works__img" href="https://mikhailchekov.github.io/table-react-app/" target="_blank" ><img src="img/react_table_app.jpg" alt="Table React app"></a>
+                                        <a class="works__img" href="https://mikhailchekov.github.io/table-react-app/" target="_blank" ><img src="img/table.jpg" alt="Table React app"></a>
                                     </div>
                                     <div class="works__column works__column_text works__column_right">
                                         <div class="works__item item">
@@ -88,13 +105,13 @@
                                         </div>
                                     </div>
                                     <div class="works__column works__column_img works__column_right">
-                                        <a class="works__img" href="https://mikhailchekov.github.io/bicycle-theme-template/" target="_blank" ><img src="img/bicycle-short.jpg" alt="Bicycle responsive template"></a>
+                                        <a class="works__img" href="https://mikhailchekov.github.io/bicycle-theme-template/" target="_blank" ><img src="img/bicycle.jpg" alt="Bicycle responsive template"></a>
                                     </div>
                                 </div>
                                 <!-- The-snake-react-game -->
                                 <div class="works__row">
                                     <div class="works__column works__column_img works__column_left">
-                                        <a class="works__img" href="https://mikhailchekov.github.io/snake-game-reactjs/" target="_blank" ><img src="img/snakeReactjs.jpg" alt="Игра 'Змейка' на React"></a>
+                                        <a class="works__img" href="https://mikhailchekov.github.io/snake-game-reactjs/" target="_blank" ><img src="img/snake.jpg" alt="Игра 'Змейка' на React"></a>
                                     </div>
                                     <div class="works__column works__column_text works__column_right">
                                         <div class="works__item item">
@@ -145,13 +162,12 @@
                                         </div>
                                     </div>
                                     <div class="works__column works__column_img works__column_right">
-                                        <a class="works__img" href="https://mikhailchekov.github.io/kitties-food-choising-app/" target="_blank" ><img src="img/new-kitties.jpg" alt="Kitties food choising app"></a>
+                                        <a class="works__img" href="https://mikhailchekov.github.io/kitties-food-choising-app/" target="_blank" ><img src="img/kitties.jpg" alt="Kitties food choising app"></a>
                                     </div>
                                 </div>
                         </section>
                     </main>
                 </div>
-                @@include('__footer.html')
             </div>
         </div>
         <script src="js/script.min.js" ></script>
