@@ -35,8 +35,8 @@
 
     // .main-block__subtitle
     &__subtitle {
-        @include animate(fadeIn, 1s, forwards );
-        animation-delay: 6s;
+        visibility: hidden;
+        @include animate(fadeIn, 0s, ease, forwards, 3.5s);
         visibility: hidden;
         font-size: 26px;
         font-weight: 400;
@@ -48,29 +48,17 @@
         }
     }
 
-    // .main-block__arrow
-    &__arrow {
+    // .main-block__btn
+    &__btn {
+        visibility: hidden;
+        @include animate(fadeIn, 0s, ease, forwards, 4s);
         position: absolute;
-        @include flexboxinline();
-        justify-content: center;
-        align-items: center;
         left: 50%;
         bottom: 40px;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
         margin-left: -25px;
         z-index: 1;
         text-align: center;
-
-        a {
-            img {
-                position: relative;
-                animation: arrow 2s infinite linear;
-            }
-        }
-    }
+}
 
     // .main-block__image
     &__image {
@@ -91,21 +79,8 @@
     }
 }
 
-@keyframes arrow {
-    0% {
-        top: -10px;
-    }
-    50% {
-        top: 12px;
-    }
-    100% {
-        top: -10px;
-    }
-}
-
 @keyframes fadeIn {
     0% {
-        visibility: hidden;
     }
     100% {
         visibility: visible;

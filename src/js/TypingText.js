@@ -30,7 +30,7 @@ export default function TypingText(container, textArr, delArr) {
     async function eraseLetters() {
         for(let i = 0; i < delCount; i++){
             elemText = elemText.slice(0,-1);
-            await delay(400);
+            await delay(600);
             container.innerHTML = elemText;
         }
     }
@@ -38,7 +38,7 @@ export default function TypingText(container, textArr, delArr) {
     async function handleLetter(str) {
         for(const letter of str){
             elemText += letter;
-            await delay(200);
+            await delay(100);
             container.innerHTML = elemText;
         }
         
