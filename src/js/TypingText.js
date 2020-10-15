@@ -1,21 +1,48 @@
-export default function TypingText(container, delLetCount ,textArr) {
-    textArr  = textArr  || 'Нужно указать массив с текстом для TypingText';
+/**
+ * * Usage: TypingText(container, textArr [, delArr]);
+ * container - Container for text Typing.
+ * textArr -  array with text lines. 
+ * delArr - array   -  [line, count] line - line where you need erase letters, count - how many.
+*/
+
+export default function TypingText(container, textArr, delArr) {
+    let [delLine, delCount] = delArr;
+    let elemText = '';
     
-    let out = '',
-        letCount = 0,
-        line = 0;
+    // pause before letters typing
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
     
-    function typeLine (){
-        let timeout = setTimeout(() => {
-            out += text[line][count];
-            container.innerHtml = out;
-        })
+    async function handleLine(array) {
+        for (let i = 0; i < array.length; i++) {
+            let item = array[i];
+            await handleLetter(item);
+            // check for erase letters in our line
+            if(delArr.length) {
+                if(i === delLine){
+                    await eraseLetters();
+                }
+            }
+        }
     }
-    function eraseLine (){
-        // for(let i = 0; i < delLetCount.length; i++)
-        let timeout = setTimeout(() => {
-            out -= text[line][count];
-            container.innerHtml = out;
-        }, 200);
+
+    async function eraseLetters() {
+        for(let i = 0; i < delCount; i++){
+            elemText = elemText.slice(0,-1);
+            await delay(400);
+            container.innerHTML = elemText;
+        }
     }
+
+    async function handleLetter(str) {
+        for(const letter of str){
+            elemText += letter;
+            await delay(200);
+            container.innerHTML = elemText;
+        }
+        
+    }
+
+    handleLine(textArr);
 }
