@@ -1,9 +1,13 @@
+// for async/await fix for babel;
+import regeneratorRuntime from "regenerator-runtime";
+
 import AnimateOnScroll from './ActiveToScroll';
 import Ibg from './Ibg';
 import ToggleReadMore from './ToggleReadMore';
 import TypingText from './TypingText';
-// for async/await err
-import regeneratorRuntime from "regenerator-runtime";
+import ScrollToElem from './ScrollToElem';
+
+
 
 
 (function () {
@@ -21,5 +25,8 @@ import regeneratorRuntime from "regenerator-runtime";
         const elemsScrollAnimate = document.querySelectorAll('.works__column, .section-title');
         AnimateOnScroll(elemsScrollAnimate, false, true);
 
+        const elemsForScrollTo = document.querySelectorAll('*[href*="#"]');
+        ScrollToElem(elemsForScrollTo);
+        
     }
 }());

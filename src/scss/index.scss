@@ -35,17 +35,18 @@ img{
 }
 
 .btn__round_arrow-up{
+    display: block;
     border: 2px solid #fff;
     border-radius: 50%;
     height: 50px;
     width: 50px;
     background-color: transparent;
-    img {
-        width: 20px;
-        height: auto;
-        position: relative;
-        @include animate(arrow, 2s, linear, infinite, 0s);
-    }
+        img {
+            width: 20px;
+            height: auto;
+            position: relative;
+            @include animate(arrow, 2s, linear, infinite, 0s);
+        }
 }
 
 .wrapper {
@@ -152,13 +153,13 @@ img{
 // Keyframes for index.scss
 @keyframes arrow {
     0% {
-        top: -10px;
+        top: 10px;
     }
     50% {
-        top: 12px;
+        top: 25px;
     }
     100% {
-        top: -10px;
+        top: 10px;
     }
 }
 

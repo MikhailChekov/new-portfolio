@@ -1,3 +1,0 @@
-// function ShowElemWithDelay(elem, delay) {
-
-// }

@@ -17,7 +17,7 @@ export default function TypingText(container, textArr, delArr) {
     async function handleLine(array) {
         for (let i = 0; i < array.length; i++) {
             let item = array[i];
-            await handleLetter(item);
+            await typingLetters(item);
             // check for erase letters in our line
             if(delArr.length) {
                 if(i === delLine){
@@ -35,7 +35,7 @@ export default function TypingText(container, textArr, delArr) {
         }
     }
 
-    async function handleLetter(str) {
+    async function typingLetters(str) {
         for(const letter of str){
             elemText += letter;
             await delay(100);
