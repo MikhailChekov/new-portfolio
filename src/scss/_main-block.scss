@@ -4,6 +4,7 @@
     @include flexbox();
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     // .main-block__content
     &__content {
