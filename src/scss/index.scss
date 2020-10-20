@@ -2,7 +2,7 @@
 @import "mixins.scss";
 // Mixins
 
-//Fonts -----------------
+//Fonts --------------------------------------
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
 //default fonts
@@ -13,40 +13,48 @@ $main-color: #eee;
 
 $min-width: 320px;
 
-// Reset , default parametrs
+// Reset , default params
 @import "startparams.scss";
 
 body {
     background: #221e3f;
 }
 
-ul {
-    padding-left: 30px;
-    list-style-type: disc;
-}
-
-img{ 
+img {
     width: 100%;
     height: auto;
+}
+
+.ibg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    img {
+        display: none;
+    }
+}
+//for parallax effect
+.ibg_p {
+    background-attachment: fixed;
 }
 
 .btn {
     cursor: pointer;
 }
 
-.btn__round_arrow-up{
+.btn__round_arrow-up {
     display: block;
     border: 2px solid #fff;
     border-radius: 50%;
     height: 50px;
     width: 50px;
     background-color: transparent;
-        img {
-            width: 20px;
-            height: auto;
-            position: relative;
-            @include animate(arrow, 2s, linear, infinite, 0s);
-        }
+    img {
+        width: 20px;
+        height: auto;
+        position: relative;
+        @include animate(arrow, 2s, linear, infinite, 0s);
+    }
 }
 
 .wrapper {
@@ -71,14 +79,13 @@ img{
     flex-direction: column;
 }
 
-//includes header, footer and other sections
-@import 'works.scss';
-@import 'main-block.scss';
+//includes header, footer and other sections -------------------
+
+@import "main-block.scss";
+@import "works.scss";
+@import "skills.scss";
 
 .section-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #c4c4c4;
     display: inline-block;
     text-transform: uppercase;
@@ -162,4 +169,3 @@ img{
         top: 10px;
     }
 }
-

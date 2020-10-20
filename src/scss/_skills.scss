@@ -1,0 +1,118 @@
+.skills {
+    padding: 30px 0;
+    margin: 0 auto;
+    // .skills__title
+    &__title {
+        margin: 0 0 40px 0;
+        text-align: center;
+    }
+    // .skills__filter
+    &__filter {
+        margin: 0 0 30px 0;
+    }
+    // .skills__descr
+    // &__descr {
+    //     color: $main-color;
+    //     font-size: 20px;
+    //     line-height: 28px;
+    //     margin: 0 0 18px 0;
+    //     text-align: center;
+    //     font-weight: normal;
+    // }
+    // .skills__content
+    &__content {
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        // padding: 0 30px;
+        flex-wrap: wrap;
+    }
+
+    // .skills__item
+    &__item {
+        margin: 15px;
+    }
+}
+
+.filter {
+    // .filter__list
+    &__list {
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .filter__item
+    &__item {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        margin: 0 25px;
+        color: #eee;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        cursor: pointer;
+
+        &.active {
+            color: #b1b8e6;
+        }
+    }
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    min-height: 200px;
+    cursor: pointer;
+
+    &__front,
+    &__back {
+        position: absolute;
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        backface-visibility: hidden;
+        // -webkit-backface-visibility: hidden; // For Safari
+        @include anim(0.5s, 0s);
+        background: linear-gradient(#d6d6d6, #f2f2f2);
+    }
+    // .card__front
+    &__front {
+        transform: perspective(600px) rotateY(0);
+    }
+
+    // .card__back
+    &__back {
+        transform: perspective(600px) rotateY(180deg);
+        flex-direction: column;
+    }
+
+    // .card__title
+    &__title {
+        font-size: 24px;
+        color: #221e3f;
+        margin-bottom: 5px;
+        // text-transform: uppercase;
+        // color: #444;
+    }
+
+    // .card__descr
+    &__descr {
+        font-size: 16px;
+    }
+
+    &:hover {
+        .card__front {
+            transform: perspective(600px) rotateY(-180deg);
+        }
+
+        .card__back {
+            transform: perspective(600px) rotateY(0);
+        }
+    }
+}
