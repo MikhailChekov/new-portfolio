@@ -6,6 +6,8 @@ import Ibg from './Ibg';
 import ToggleReadMore from './ToggleReadMore';
 import TypingText from './TypingText';
 import SmoothScroll from './SmoothScroll';
+import FilterItems from './FilterItems';
+import AnimateProgressBar from './AnimateProgressBar';
 
 
 (function () {
@@ -25,6 +27,13 @@ import SmoothScroll from './SmoothScroll';
 
         const elemsForSmoothScroll = document.querySelectorAll('*[href*="#"]');
         SmoothScroll(elemsForSmoothScroll);
+
+        const filterButtons = document.querySelectorAll('.filter__item'),
+            filterItems = document.querySelectorAll('.skills__item');
+        FilterItems(filterButtons,filterItems);
+
+        const progressElems = document.querySelectorAll('.skills__item');
+        AnimateProgressBar(progressElems, 'progress-bar');
         
     }
 }());

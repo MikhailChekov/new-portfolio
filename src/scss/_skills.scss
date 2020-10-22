@@ -10,15 +10,7 @@
     &__filter {
         margin: 0 0 30px 0;
     }
-    // .skills__descr
-    // &__descr {
-    //     color: $main-color;
-    //     font-size: 20px;
-    //     line-height: 28px;
-    //     margin: 0 0 18px 0;
-    //     text-align: center;
-    //     font-weight: normal;
-    // }
+
     // .skills__content
     &__content {
         @include flexbox();
@@ -53,8 +45,12 @@
         text-transform: uppercase;
         letter-spacing: 3.6px;
         cursor: pointer;
+        @include anim(0.3s, 0s);
 
         &.active {
+            color: #b869f5;
+        }
+        &:hover {
             color: #b1b8e6;
         }
     }
@@ -96,14 +92,18 @@
     &__title {
         font-size: 24px;
         color: #221e3f;
-        margin-bottom: 5px;
-        // text-transform: uppercase;
-        // color: #444;
+        margin-bottom: 10px;
     }
 
     // .card__descr
     &__descr {
         font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    // .card__progress-bar
+    &__progress-bar {
     }
 
     &:hover {
@@ -114,5 +114,159 @@
         .card__back {
             transform: perspective(600px) rotateY(0);
         }
+    }
+}
+
+.progress-bar {
+    position: relative;
+    height: 20px;
+    width: 80%;
+    background: #353b48; 
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    box-shadow: 0 0 10px #2187e7;
+
+    &__number {
+        position: absolute;
+        left: 50%;
+        margin-left: -7%;
+        color: #fff;
+        font-size: 14px;
+        padding-top: 0.5px;
+        z-index: 2;
+    }
+
+    &__fill {
+        position: absolute;
+        top:0;
+        left:0;
+        height: 20px;
+        // width: 1%;
+        background: #2187e7;
+        z-index: 1;
+    }
+}
+
+.hide {
+    @include animate(hide, 1s, 1, 0s, forwards);
+}
+
+@keyframes hide {
+    to {
+        width: 0;
+        min-height: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+}
+
+.show {
+    @include animate(show, 1s, 1, 0s, forwards);
+}
+
+@keyframes show {
+    from {
+        width: 0px;
+        min-height: 0px;
+        opacity: 0;
+    }
+    to {
+        width: 200px;
+        min-height: 200px;
+        opacity: 1;
+    }
+}
+
+// ---------------------- Media queries Skills section --------------------------//
+
+@media (max-width: 968px) {
+    .skills__title {
+        margin: 0 0 20px 0;
+    }
+    .skills__item {
+        margin: 10px;
+    }
+    .card {
+        width: 150px;
+        min-height: 150px;
+    }
+
+    .card__title {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    @keyframes show {
+        from {
+            width: 0px;
+            min-height: 0px;
+            opacity: 0;
+        }
+        to {
+            width: 150px;
+            min-height: 150px;
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 10px 0;
+    }
+
+    .skills__filter {
+        margin-bottom: 15px;
+    }
+
+    .skills__title {
+        margin: 0 0 20px 0;
+    }
+    .skills__item {
+        margin: 5px;
+    }
+    .card {
+        width: 140px;
+        min-height: 140px;
+    }
+
+    .card__title {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .card__descr {
+        font-size: 14px;
+    }
+
+    @keyframes show {
+        from {
+            width: 0px;
+            min-height: 0px;
+            opacity: 0;
+        }
+        to {
+            width: 140px;
+            min-height: 140px;
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .filter__list {
+        flex-direction: column;
+    }
+    .filter__item {
+        margin-bottom: 7px;
+        font-size: 20px;
+    }
+    .skills__filter {
+        margin-bottom: 5px;
+    }
+
+    .skills__item {
+        margin: 2px;
     }
 }
