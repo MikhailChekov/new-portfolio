@@ -1,0 +1,64 @@
+.contacts {
+
+    // .contacts__title
+    &__title {
+        text-align: center;
+        margin: 0 0 40px 0;
+    }
+
+    // .contacts__content
+    &__content {
+        padding: 10px 0 20px 0;
+    }
+
+    // .contacts__text
+    &__text {
+        @include flexbox();
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: left;
+        font-size: 22px;
+        color: #eee;
+        li{ 
+            margin-bottom: 20px;
+        }
+        li:last-child {
+            margin-bottom: 0;
+        }
+        a {
+            display: inline-block;
+            color: #eee;
+            &:hover {
+                color: #3883ff;
+            }
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        width:20px;
+        height: 20px;
+        color: #eee;
+    }
+
+}
+
+// ---------------------- Media queries Contacts section --------------------------//
+
+
+
+@media (max-width: 768px) {
+    .contacts__title {
+        margin: 0 0 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts__title {
+        margin: 0 0 10px 0;
+    }
+}
+
+
+

@@ -57,6 +57,18 @@ img {
     }
 }
 
+@keyframes arrow {
+    0% {
+        top: 10px;
+    }
+    50% {
+        top: 25px;
+    }
+    100% {
+        top: 10px;
+    }
+}
+
 .wrapper {
     width: 100%;
     min-height: 100%;
@@ -84,6 +96,7 @@ img {
 @import "main-block.scss";
 @import "works.scss";
 @import "skills.scss";
+@import "contacts.scss";
 
 .section-title {
     color: #c4c4c4;
@@ -143,29 +156,35 @@ img {
             @include rotate(360deg);
         }
 
-        &::after {
+        &::after, &::before{
             content: "";
-            @include tr(0, 0, 0);
             opacity: 1;
-        }
-
-        &::before {
-            content: "";
             @include tr(0, 0, 0);
-            opacity: 1;
         }
     }
 }
 
-// Keyframes for index.scss
-@keyframes arrow {
-    0% {
-        top: 10px;
+.section-title_long {
+    &::before {
+        content: "";
+        right: 80px;
+        @include tr(-70%, 0, 0);
     }
-    50% {
-        top: 25px;
+    &::after {
+        content: "";
+        left: 80px;
+        @include tr(70%, 0, 0);
     }
-    100% {
-        top: 10px;
+    &_active {
+        .section-title__icon {
+            @include rotate(360deg);
+        }
+
+        &::after,
+        &::before{
+            content: "";
+            opacity: 1;
+            @include tr(0, 0, 0);
+        }
     }
 }

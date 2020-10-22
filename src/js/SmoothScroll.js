@@ -22,9 +22,7 @@ export default function SmoothScroll (elems) {
             scrollStep = 10,
             scrollPath = window.pageYOffset,
             timer;
-        console.log(sectionRect, 'sectionRect');
-        console.log(scrollDistance, 'scrollDistance');
-        console.log(scrollPath, 'scrollPath');
+            
         scrollLoop();
 
         function scrollLoop() {

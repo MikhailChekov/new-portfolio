@@ -55,7 +55,7 @@ function AnimateOnScroll(elems, repeatAnim = true, BEMmode = false, classToElem 
             return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
         }
     } else {
-        console.error('No elements in container AnimateOnScroll()');
+        console.error('No elements in container AnimateOnScroll');
     }
 }
 
