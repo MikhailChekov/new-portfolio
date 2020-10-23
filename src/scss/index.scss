@@ -52,6 +52,7 @@ img {
 }
 
 .btn__round_arrow-down {
+    z-index: 3;
     img {
         width: 20px;
         height: auto;
@@ -77,6 +78,7 @@ img {
     position: fixed;
     right: 100px;
     bottom: 50px;
+    z-index: 3;
     @include animate(pulse, 2s, linear, infinite, 0s);
     img {
         transform: rotate(180deg);
@@ -120,7 +122,7 @@ img {
 }
 
 //includes header, footer and other sections -------------------
-
+@import "header.scss";
 @import "main-block.scss";
 @import "works.scss";
 @import "skills.scss";

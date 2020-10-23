@@ -9,6 +9,7 @@ import SmoothScroll from './SmoothScroll';
 import FilterItems from './FilterItems';
 import AnimateProgressBar from './AnimateProgressBar';
 import ScrollTopBtn from './ScrollTopBtn';
+import ToggleMenu from './ToggleMenu';
 
 
 (function () {
@@ -42,6 +43,11 @@ import ScrollTopBtn from './ScrollTopBtn';
 
         const btnUp = document.querySelector('.btn__round_arrow-up');
         ScrollTopBtn(btnUp);
+
+        //Toggle active class 'burger' menu; 
+        const burgerMenu = document.querySelector('.menu-toggler');
+        ToggleMenu(burgerMenu, 'menu-toggler_active');
+
         
     }
 }());
