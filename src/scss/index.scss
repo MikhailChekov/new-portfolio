@@ -223,3 +223,23 @@ img {
         }
     }
 }
+
+@media (max-width: 1024px) {
+    .btn__round_arrow-up {
+        right: 30px;
+        bottom: 30px
+    }
+}
+
+@media (max-width: 769px) {
+    .btn__round_arrow-up {
+        animation: none;
+    }
+}
+
+@media (max-width: 481px) {
+    .btn__round_arrow-up {
+        right: 20px;
+        bottom: 20px;
+    }
+}

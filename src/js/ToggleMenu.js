@@ -20,23 +20,23 @@ export default function ToggleMenu (toggler, menu, toggleActiveClass, menuActive
     style.innerHTML = '.body-lock { overflow: hidden;} .none { display: none; }';
     document.head.append(style);
     
-    toggler.addEventListener('click', handleClick);
-    menu.addEventListener('click', handleClick);
+    toggler.addEventListener('click', menuHandler);
+    menu.addEventListener('click', menuHandler);
 
     if(navLinks) {
-        navLinks.forEach(e => e.addEventListener('click', navLinksHandle));
+        navLinks.forEach(e => e.addEventListener('click', linksHandler));
     }
 
-    function navLinksHandle(e) {
+    function linksHandler(e) {
         e.preventDefault();
-        console.log(2);
         const elem = e.target.getAttribute('href');
-        document.querySelector(elem).scrollIntoView({
-            behavior: 'smooth',
+        const section = document.querySelector(elem);
+        section.scrollIntoView({
+            behavior: 'smooth'
         });
     }
 
-    function handleClick () {
+    function menuHandler () {
         toggler.classList.toggle(toggleActiveClass);
         menu.classList.toggle(menuActiveClass);
         body.classList.toggle('body-lock');

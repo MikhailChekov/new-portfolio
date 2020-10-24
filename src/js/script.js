@@ -16,13 +16,13 @@ import ToggleMenu from './ToggleMenu';
     document.addEventListener("DOMContentLoaded", ready);
 
     function ready() {
-        //Copy 'src' from img tag to background of a parent elem.
+        //Copy 'src' from img tag to background of a parent tag.
         Ibg();
         
-        // main block Typing text animation
+        // main block Typing-text animation.
         let typeTextElem = document.querySelector('.main-block__title');
         TypingText(typeTextElem ,['Привет, я Чех', 'ков Михаил'], [0, 1]);
-        // 'read more' for links section
+        // 'read more' for links section 'works'.
         let readMoreELems = document.querySelectorAll('.item__descr');
         ToggleReadMore(readMoreELems,'item__link_more', 'item__cut');
 
@@ -49,7 +49,6 @@ import ToggleMenu from './ToggleMenu';
         const toggler = document.querySelector('.toggler');
         const menu = document.querySelector('.header__menu');
         const linksForCustomScroll = document.querySelectorAll('.menu__link');
-
         ToggleMenu(toggler, menu, 'toggler_active', 'menu_active', linksForCustomScroll);
     }
 }());

@@ -35,7 +35,7 @@
         border-radius: initial;
     }
 
-    // .menu__text
+    // .menu__list
     &__list {
         @include flexbox();
         align-items: center;
@@ -103,5 +103,32 @@
         .toggler__item_end{
             transform: rotate(-450deg) translateX(-8px);
         }
+    }
+}
+
+@media (max-width: 1024px) {
+    .header__toggler {
+        top: 30px;
+        right: 30px;
+    }
+}
+
+@media (max-width: 769px) {
+    .menu__list{
+        flex-direction: column;
+    }
+    .menu__item {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    .menu__item:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 481px) {
+    .header__toggler {
+        top: 20px;
+        right: 20px;
     }
 }
