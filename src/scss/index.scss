@@ -76,7 +76,7 @@ img {
 .btn__round_arrow-up {
     display: none;
     position: fixed;
-    right: 100px;
+    right: 50px;
     bottom: 50px;
     z-index: 3;
     @include animate(pulse, 2s, linear, infinite, 0s);
@@ -103,6 +103,10 @@ img {
     width: 100%;
     min-height: 100%;
     overflow: hidden;
+}
+
+.wrapper_active {
+    margin-right: -300px;
 }
 
 //default width site

@@ -19,9 +19,10 @@ import ToggleMenu from './ToggleMenu';
         //Copy 'src' from img tag to background of a parent elem.
         Ibg();
         
+        // main block Typing text animation
         let typeTextElem = document.querySelector('.main-block__title');
         TypingText(typeTextElem ,['Привет, я Чех', 'ков Михаил'], [0, 1]);
-
+        // 'read more' for links section
         let readMoreELems = document.querySelectorAll('.item__descr');
         ToggleReadMore(readMoreELems,'item__link_more', 'item__cut');
 
@@ -30,7 +31,7 @@ import ToggleMenu from './ToggleMenu';
         AnimateOnScroll(elemsScrollAnimate, false, true);
 
         //Apply effect to menu and button 'down'.
-        const elemsForSmoothScroll = document.querySelectorAll('*[href*="#"]');
+        const elemsForSmoothScroll = document.querySelectorAll('.btn__round_arrow-down');
         SmoothScroll(elemsForSmoothScroll);
 
         //Apply effect to 'skills' section.
@@ -44,10 +45,11 @@ import ToggleMenu from './ToggleMenu';
         const btnUp = document.querySelector('.btn__round_arrow-up');
         ScrollTopBtn(btnUp);
 
-        //Toggle active class 'burger' menu; 
-        const burgerMenu = document.querySelector('.menu-toggler');
-        ToggleMenu(burgerMenu, 'menu-toggler_active');
+        //Control menu behavior
+        const toggler = document.querySelector('.toggler');
+        const menu = document.querySelector('.header__menu');
+        const linksForCustomScroll = document.querySelectorAll('.menu__link');
 
-        
+        ToggleMenu(toggler, menu, 'toggler_active', 'menu_active', linksForCustomScroll);
     }
 }());

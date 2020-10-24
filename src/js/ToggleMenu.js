@@ -1,20 +1,61 @@
 /**
- * * Usage: ToggleMenu(item, toggleClass);
- *  item -  menu element.
- *  toggleClass - classname, which we should toggle.
+ * * Usage: ToggleMenu(toggler, menu, toggleActiveClass, menuActiveClass[,navLinks, bodyActive, outerToggleElem , outerToggleClass]);
+ *  toggler - toggler element or button, like a burger menu.
+ *  menu -  menu element.
+ *  toggleActiveClass - classname, which should be on toggler element, when it were ??? clicked.
+ *  menuActiveClass - classname, which should be on menu element, when toggler was clicked.
+ *  navLinks - elem, with links for Custom scroll properties.
+ *  bodyActive - if we're should add class to body for translate it somewhere.
+ *  outerHideClass - if we're should hide some element (toggle display node for some class).
+ *  outerToggleElem - outer elem or elements for active. 
+ *  outerToggleClass - className or array with classNames for outer elems.
 */
 
-export default function ToggleMenu (item, toggleClass) {
+export default function ToggleMenu (toggler, menu, toggleActiveClass, menuActiveClass, navLinks, bodyActive, outerToggleElem , outerToggleClass) {
 
+
+    // Lock body for stop user scroll, when the menu open.
     let style = document.createElement('style'),
-        body = document.getElementsByTagName('body')[0];
-
-    style.innerHTML = '.lock-body { overflow: hidden;}';
-    document.getElementsByTagName('head')[0].append(style);
+        body = document.body;
+    style.innerHTML = '.body-lock { overflow: hidden;} .none { display: none; }';
+    document.head.append(style);
     
-    item.addEventListener('click', handleClick);
+    toggler.addEventListener('click', handleClick);
+    menu.addEventListener('click', handleClick);
+
+    if(navLinks) {
+        navLinks.forEach(e => e.addEventListener('click', navLinksHandle));
+    }
+
+    function navLinksHandle(e) {
+        e.preventDefault();
+        console.log(2);
+        const elem = e.target.getAttribute('href');
+        document.querySelector(elem).scrollIntoView({
+            behavior: 'smooth',
+        });
+    }
+
     function handleClick () {
-        item.classList.toggle(toggleClass);
-        body.classList.toggle('lock-body');
+        toggler.classList.toggle(toggleActiveClass);
+        menu.classList.toggle(menuActiveClass);
+        body.classList.toggle('body-lock');
+
+        if(bodyActive) {
+            body.classList.toggle(bodyActive);
+        }
+        if(outerToggleElem) {
+            if(outerToggleElem.length) {
+                let arr = [...outerToggleElem];
+                
+                arr.forEach((e, i) => {
+                    console.log(e);
+                    e.classList.toggle(outerToggleClass[i]);
+                });
+            } else {
+                outerToggleElem.classList.toggle(outerToggleClass);
+            }
+            
+        }
     }
 }

@@ -1,31 +1,89 @@
-.menu-toggler {
+.header {
+    // .header__menu
+    &__menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+    // .header__toggler
+    &__toggler {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+}
+.menu {
+    width: 100%;
+    height: 100%;
+    @include anim(.5s, 0s);
+    @include tr (0, -100%, 0);
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #221e3f;
+    overflow: auto;
+    z-index: 5;
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+
+    // .menu_active
+    &_active {
+        @include tr(0, 0, 0);
+        border-radius: initial;
+    }
+
+    // .menu__text
+    &__list {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item {
+        margin-right: 30px;
+        text-align: left;
+    }
+
+    &__item:last-child {
+        margin-right: 0;
+    }
+
+    // .menu__link
+    &__link {
+        color: #221e3f;
+        font-size: 30px;
+    }
+}
+.toggler {
     position: fixed;
-    top: 50px;
-    right: 100px;
     width: 50px;
     height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 3;
+    z-index: 10;
     transition: transform 450ms ease-out;
 
+    // .toggler__item
     &__item {
         background: #eee;
         width: 100%;
         height: 4px;
         border-radius: 10px;
-
+        // .toggler__item_h
         &_h {
             width: 50%;
         }
-
+        // .toggler__item_start
         &_start {
             transform-origin: right;
             transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
         }
-
+        // .toggler__item_end
         &_end {
             align-self: flex-end;
             transform-origin: left;
@@ -33,18 +91,17 @@
         }
     }
 
+    // .toggler_active
     &_active {
         transform: rotate(-45deg);
-
-        .menu-toggler__item_start{
+        .toggler__item{
+            background-color: #221e3f;
+        }
+        .toggler__item_start{
             transform: rotate(-450deg) translateX(8px);
         }
-        .menu-toggler__item_end{
+        .toggler__item_end{
             transform: rotate(-450deg) translateX(-8px);
         }
     }
 }
-
-
-// overflow: auto;  - make to nav
-
