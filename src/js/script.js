@@ -22,6 +22,7 @@ import ToggleMenu from './ToggleMenu';
         // main block Typing-text animation.
         let typeTextElem = document.querySelector('.main-block__title');
         TypingText(typeTextElem ,['Привет, я Чех', 'ков Михаил'], [0, 1]);
+        
         // 'read more' for links section 'works'.
         let readMoreELems = document.querySelectorAll('.item__descr');
         ToggleReadMore(readMoreELems,'item__link_more', 'item__cut');

@@ -73,7 +73,6 @@
         height: 100%;
         border-radius: 10px;
         backface-visibility: hidden;
-        // -webkit-backface-visibility: hidden; // For Safari
         @include anim(0.5s, 0s);
         background: linear-gradient(#d6d6d6, #f2f2f2);
     }
@@ -142,7 +141,6 @@
         top:0;
         left:0;
         height: 20px;
-        // width: 1%;
         background: #2187e7;
         z-index: 1;
     }

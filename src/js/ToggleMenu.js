@@ -49,7 +49,6 @@ export default function ToggleMenu (toggler, menu, toggleActiveClass, menuActive
                 let arr = [...outerToggleElem];
                 
                 arr.forEach((e, i) => {
-                    console.log(e);
                     e.classList.toggle(outerToggleClass[i]);
                 });
             } else {

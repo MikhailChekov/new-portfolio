@@ -48,12 +48,6 @@ const { src, dest } = require('gulp'),
     del = require('del'),
     //push media-queries to bottom
     gcmq = require('gulp-group-css-media-queries'),
-
-    //for photo .webp
-    // webp = require('gulp-webp'),
-    // webphtml = require('gulp-webp-html'),
-    // webpcss = require('gulp-webpcss'),
-    
     svgsprite = require('gulp-svg-sprite'),
     //fonts
     ttf2woff = require('ttf2woff'),
@@ -109,9 +103,7 @@ function css() {
         .pipe(plumber())
         .pipe(scss({ outputStyle: 'expanded', errLogToConsole: true }).on('error', scss.logError))
         .pipe(debug({title: 'sass:'}))
-        // .pipe(webpcss({ webpClass: '.webp', noWebpClass: '.no-webp' }))
         .pipe(autoprefixer({
-            // grid: true,
             overrideBrowserslist: ['last 5 versions'], 
             cascade: true
         }))
@@ -126,7 +118,6 @@ function minifyCss() {
         .pipe(plumber())
         .pipe(scss({ outputStyle: 'expanded' }).on('error', scss.logError))
         .pipe(debug({title: 'sass:'}))
-        // .pipe(webpcss({ webpClass: '.webp', noWebpClass: '.no-webp' }))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 5 versions'], 
             cascade: true
@@ -205,9 +196,6 @@ function minifyJs() {
 const minifyImages = () => {
     return src(path.src.img)
         .pipe(plumber())
-        // .pipe( webp({
-        //     quality: 70
-        // }))
         .pipe(dest(path.build.img))
         .pipe(src(path.src.img))
         .pipe(imagemin({ 
@@ -229,7 +217,6 @@ function svg() {
             mode: {
                 stack: {
                     sprite: '../icons/icons.svg', //sprite file name
-                    // example: true
                 }
             }
         }))
@@ -306,7 +293,7 @@ exports.otf2ttf = otf2ttf;
 exports.fontConnect2File = fontConnect2File;
 
 
-// working for default
+// working to default
 const build = gulp.series(gulp.parallel(minifyCss, minifyJs, html));
 const def = gulp.parallel(build, watchFiles, browserSync);
 

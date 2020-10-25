@@ -2,7 +2,7 @@
 @import "mixins.scss";
 // Mixins
 
-//Fonts --------------------------------------
+//Fonts
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
 //default fonts
@@ -125,7 +125,7 @@ img {
     flex-direction: column;
 }
 
-//includes header, footer and other sections -------------------
+//includes header, footer and other sections
 @import "header.scss";
 @import "main-block.scss";
 @import "works.scss";

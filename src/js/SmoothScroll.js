@@ -6,7 +6,6 @@ export default function SmoothScroll (elems) {
 
     for (const elem of elems) {
         elem.addEventListener('click', startLoop , false);
-        // add my param to elem
     }
 
     function startLoop(e){

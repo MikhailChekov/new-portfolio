@@ -12,9 +12,9 @@ export default function ScrollTopBtn (elem) {
         });
     });
 
-    window.addEventListener('scroll', scrollTopCheck);
+    window.addEventListener('scroll', butonHide);
 
-    function scrollTopCheck () {
+    function butonHide () {
         if(window.pageYOffset > 300) {
             elem.style.display = 'block';
         } else {

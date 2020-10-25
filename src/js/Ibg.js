@@ -1,5 +1,5 @@
 /**
- * Copy src path from img to parrent tag with class 'ibg'.
+ * Copy 'src' from img tag to background of a parent tag.
  */
 export default function ibg() {
     let ibgs = document.getElementsByClassName('ibg');

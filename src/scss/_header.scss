@@ -17,8 +17,8 @@
 .menu {
     width: 100%;
     height: 100%;
-    @include anim(.5s, 0s);
-    @include tr (0, -100%, 0);
+    @include anim(0.5s, 0s);
+    @include tr(0, -100%, 0);
     @include flexbox();
     justify-content: center;
     align-items: center;
@@ -94,13 +94,13 @@
     // .toggler_active
     &_active {
         transform: rotate(-45deg);
-        .toggler__item{
+        .toggler__item {
             background-color: #221e3f;
         }
-        .toggler__item_start{
+        .toggler__item_start {
             transform: rotate(-450deg) translateX(8px);
         }
-        .toggler__item_end{
+        .toggler__item_end {
             transform: rotate(-450deg) translateX(-8px);
         }
     }
@@ -114,7 +114,7 @@
 }
 
 @media (max-width: 769px) {
-    .menu__list{
+    .menu__list {
         flex-direction: column;
     }
     .menu__item {

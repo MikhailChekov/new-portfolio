@@ -1,4 +1,3 @@
-
 /**
  * * Usage: AnimateOnScroll(elems[repeatAnim, BEMmode, classToElem])
  *  elems - container with elements, which get class active when get visible to 1/4 their heigth
