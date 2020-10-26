@@ -13,7 +13,7 @@ import ToggleMenu from './ToggleMenu';
 
 
 (function () {
-    document.addEventListener("DOMContentLoaded", ready);
+    window.addEventListener("load", ready());
 
     function ready() {
         //Copy 'src' from img tag to background of a parent tag.
