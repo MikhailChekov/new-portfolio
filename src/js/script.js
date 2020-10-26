@@ -31,7 +31,7 @@ import ToggleMenu from './ToggleMenu';
         const elemsScrollAnimate = document.querySelectorAll('.works__column, .section-title');
         AnimateOnScroll(elemsScrollAnimate, false, true);
 
-        //Apply effect to menu and button 'down'.
+        //Apply effect to button 'down' on main block.
         const elemsForSmoothScroll = document.querySelectorAll('.btn__round_arrow-down');
         SmoothScroll(elemsForSmoothScroll);
 
@@ -39,6 +39,7 @@ import ToggleMenu from './ToggleMenu';
         const filterButtons = document.querySelectorAll('.filter__item'),
             filterItems = document.querySelectorAll('.skills__item');
         FilterItems(filterButtons,filterItems);
+
         //Apply effect to 'skills' section on back part of cards.
         const progressElems = document.querySelectorAll('.skills__item');
         AnimateProgressBar(progressElems, 'progress-bar');

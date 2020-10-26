@@ -12,8 +12,7 @@ export default function SmoothScroll (elems) {
         e = e || window.event;
         e.preventDefault();
 
-        //check for more than 1 elem, maybe should use currentTarget
-        const elem = e.target.getAttribute('href');
+        const elem = e.currentTarget.getAttribute('href');
         const section = document.querySelector(elem);
         const sectionRect = section.getBoundingClientRect().top;
 
