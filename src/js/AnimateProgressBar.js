@@ -13,7 +13,6 @@ export default function AnimateProgressBar(elems, barClass) {
         const barColors = ['#fecf23', '#ff0000', '#008000', '#0000ff', '#C71585', '#2F4F4F'];
         let number, fill;
 
-
         const targetChildren = [...currentTarget.children];
         targetChildren.forEach(i => {
             if(i.classList.contains(barClass)){
@@ -36,7 +35,7 @@ export default function AnimateProgressBar(elems, barClass) {
         fill.style.backgroundColor = barColors[getRandomInt(barColors.length -1)];
         
         let interval = setInterval(() => {
-            if(start <= percent) {
+            if(start < percent) {
                 fill.style.width = (++start) + '%';
             } else {
                 clearInterval(interval);

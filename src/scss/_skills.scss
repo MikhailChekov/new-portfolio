@@ -125,22 +125,25 @@
     border: 2px solid rgba(0, 0, 0, 0.3);
     overflow: hidden;
     box-shadow: 0 0 10px #2187e7;
-
     &__number {
         position: absolute;
-        left: 50%;
-        margin-left: -7%;
+        width: 100%;
+        background-color: transparent;
+        text-align: center;
         color: #fff;
         font-size: 14px;
-        padding-top: 0.5px;
-        z-index: 2;
+        top: 50%;
+        line-height: 15px;
+        margin-top: -7.5px;
+        z-index: 3;
+        text-align: center;
     }
 
     &__fill {
         position: absolute;
         top:0;
         left:0;
-        height: 20px;
+        height: 100%;
         background: #2187e7;
         z-index: 1;
     }
