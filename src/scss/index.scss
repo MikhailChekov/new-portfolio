@@ -79,12 +79,18 @@ img {
     right: 50px;
     bottom: 50px;
     z-index: 3;
+    text-align: center;
     @include animate(pulse, 2s, linear, infinite, 0s);
     img {
         transform: rotate(180deg);
+        position: absolute;
         width: 20px;
         height: auto;
-        position: relative;
+        margin: auto;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
     }
 }
 
@@ -127,7 +133,7 @@ img {
 
 //includes header, footer and other sections
 @import "header.scss";
-@import "main-block.scss";
+@import "mainblock.scss";
 @import "works.scss";
 @import "skills.scss";
 @import "contacts.scss";

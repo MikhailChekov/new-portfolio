@@ -45,6 +45,7 @@ import ToggleMenu from './ToggleMenu';
         AnimateProgressBar(progressElems, 'progress-bar');
 
         const btnUp = document.querySelector('.btn__round_arrow-up');
+        console.log(btnUp);
         ScrollTopBtn(btnUp);
 
         //Control menu behavior

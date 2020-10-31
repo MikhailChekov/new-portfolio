@@ -4,7 +4,8 @@
 */
 
 export default function ScrollTopBtn (elem) {
-    elem.addEventListener('click', () => {
+    elem.addEventListener('click', (e) => {
+        e.preventDefault();
         window.scroll({
             top: 0,
             left: 0,
