@@ -2,7 +2,7 @@
 
 ## [open](https://mikhailchekov.github.io/new-portfolio/)
 
-I learn in this project js frontend features like:
+I learn in this project some Js features:
  - 'Typing text' animation
  - 'Shooth scroll' effect
  - Animate progress bar
